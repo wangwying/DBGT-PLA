@@ -1,0 +1,77 @@
+trainer:
+  DATA_PATH: "data/"
+  SAVE_BEST_MODEL: True
+  MODEL_SAVE_FOLDER: "models" 
+  HIDDEN_CHANNELS: 256
+  BATCH_SIZE: 32
+  EPOCHS: 100
+  SEED: 42
+  CLEAN_DATA: True
+  MIN_AFFINITY: 5
+  MAX_AFFINITY: 11
+  MEAN_LOWER_BOUND: 6.5
+  MEAN_UPPER_BOUND: 7.5
+  LOW_BOUND: 6
+  HIGH_BOUND: 8
+  GNN_MODEL: "GFormer"
+  EDGE_WEIGHT: True
+  SCALING: True
+  SEED: 42
+  HIDDEN_CHANNELS: 256
+  EPOCHS: 100
+  LEARNING_RATE: 1e-3
+  WEIGHT_DECAY: 5e-4
+  NODE_FEATURES: True
+  TRANSFORMER_HEADS: 4
+  MODEL_PATH: 'models/model_GFormer_best_73_1767011167.ckpt'
+
+explainer:
+  DATA_PATH: "data/"
+  SAVE_FOLDER: 'results/explanations/test'
+  MODEL_PATH: 'models/model_GFormer_best_73_1767011167.ckpt'
+  GNN_MODEL: "GFormer"
+  SAMPLES_TO_EXPLAIN: 10
+  AFFINITY_SET: "high"
+  HIDDEN_CHANNELS: 256
+  BATCH_SIZE: 32
+  EPOCHS: 100
+  SEED: 42
+  CLEAN_DATA: True
+  MIN_AFFINITY: 5
+  MAX_AFFINITY: 11
+  MEAN_LOWER_BOUND: 6.5
+  MEAN_UPPER_BOUND: 7.5
+  LOW_BOUND: 6
+  HIGH_BOUND: 8
+  EDGE_WEIGHT: True
+  SCALING: True
+  SEED: 42
+  HIDDEN_CHANNELS: 256
+  EPOCHS: 5
+  LEARNING_RATE: 1e-3
+  WEIGHT_DECAY: 5e-4
+  NODE_FEATURES: True
+
+top_k_computation:
+  DATA_PATH: "data/"
+  PLOT: True
+  EXPLANATIONS_FOLDER: "results/explanations/test/GFormer/"
+  TOP_K_VALUES: [5,10,15,20,25]
+  NODE_LABELS: False
+  IMAGE_FORMAT: "svg"
+
+
+
+#parameters for additional scripts
+
+statistics:
+  DATA_PATH: "data/"
+  EXPLANATIONS_FOLDER: "results/explanations/GFormer/"
+  TOP_K_VALUES: [25]
+  MIN_AFFINITY: 5
+  MAX_AFFINITY: 11
+  MEAN_LOWER_BOUND: 6.5
+  MEAN_UPPER_BOUND: 7.5
+  LOW_BOUND: 6
+  HIGH_BOUND: 8
+  CLEAN_DATA: True
